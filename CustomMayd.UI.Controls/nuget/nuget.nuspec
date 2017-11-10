@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2013/01/nuspec.xsd">
+  <metadata minClientVersion="3.0">
+
+    <version>0.0.1</version>
+
+    <id>CustomMayd.UI.Controls</id>
+
+    <title>CustomMayd.UI.Controls</title>
+
+    <authors>Daren May</authors>
+
+    <owners>darenmay</owners>
+
+    <licenseUrl>https://choosealicense.com/licenses/apache-2.0/</licenseUrl>
+
+    <projectUrl>https://github.com/darenm/CustomMayd.UI</projectUrl>
+
+    <iconUrl>https://www.dropbox.com/s/0icajgqzqkglxn2/Badge_330.png?dl=0</iconUrl>
+
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+
+    <description>
+      <![CDATA[
+        A collection of controls created or modified by CustomMayd.
+      ]]>
+    </description>
+
+    <tags>
+      Windows 10, Windows10, W10, UAP, UWP, WinRT, XAML, Controls, Windows Universal, Universal App
+    </tags>
+
+    <copyright>CustomMayd LLC (c) 2017</copyright>
+
+    <language />
+
+    <releaseNotes>
+      Version 1.0.0
+      First release
+    </releaseNotes>
+
+    <dependencies>
+      <dependency id="Microsoft.NETCore.UniversalWindowsPlatform" version="6.0.1" />
+    </dependencies>
+
+  </metadata>
+
+  <files>
+    <file src="lib\" target="lib\uap10.0\" />
+  </files>
+
+</package>
