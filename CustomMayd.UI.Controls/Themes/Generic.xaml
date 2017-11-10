@@ -1,0 +1,63 @@
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:CustomMayd.UI.Controls">
+
+    <ResourceDictionary.ThemeDictionaries>
+        <ResourceDictionary x:Key="Default">
+            <AcrylicBrush x:Key="TitleBarBackground"
+                          BackgroundSource="Backdrop"
+                          TintColor="Orange" TintOpacity=".2" FallbackColor="Orange" />
+            <SolidColorBrush x:Key="ForeGroundColor" Color="Black"/>
+
+        </ResourceDictionary>
+
+        <ResourceDictionary x:Key="HighContrast">
+            <SolidColorBrush x:Key="TitleBarBackground"
+                             Color="{ThemeResource SystemColorWindowColor}" />
+            <SolidColorBrush x:Key="ForeGroundColor" Color="Black"/>
+
+        </ResourceDictionary>
+
+        <ResourceDictionary x:Key="Light">
+            <AcrylicBrush x:Key="TitleBarBackground"
+                          BackgroundSource="Backdrop"
+                          TintColor="Orange" TintOpacity=".2" FallbackColor="Orange" />
+            <SolidColorBrush x:Key="ForeGroundColor" Color="Black"/>
+        </ResourceDictionary>
+        
+        <ResourceDictionary x:Key="Dark">
+            <AcrylicBrush x:Key="TitleBarBackground"
+                          BackgroundSource="Backdrop"
+                          TintColor="Orange" TintOpacity=".2" FallbackColor="Orange" />
+            <SolidColorBrush x:Key="ForeGroundColor" Color="White"/>
+        </ResourceDictionary>
+    </ResourceDictionary.ThemeDictionaries>
+
+    <Style TargetType="local:TitleBarEx">
+        <Setter Property="Background" Value="{ThemeResource TitleBarBackground}" />
+        <Setter Property="Foreground" Value="{ThemeResource ForeGroundColor}"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local:TitleBarEx">
+                    <Border
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        Height="32"
+                        HorizontalAlignment="Stretch"
+                        VerticalAlignment="Top">
+
+                        <TextBlock x:Name="AppTitle"
+                                   Style="{StaticResource CaptionTextBlockStyle}"
+                                   HorizontalAlignment="Center"
+                                   Foreground="{TemplateBinding Foreground}"
+                                   Margin="0,8,0,0"
+                                   Text="{TemplateBinding HeaderText}"
+                                   IsHitTestVisible="False" />
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

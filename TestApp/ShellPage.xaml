@@ -1,0 +1,59 @@
+﻿<Page
+    x:Class="TestApp.ShellPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:TestApp"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:controls="using:CustomMayd.UI.Controls"
+    xmlns:views="using:TestApp.Views"
+    xmlns:appmodel="using:Windows.ApplicationModel"
+    mc:Ignorable="d">
+
+    <Page.Resources>
+        <Color x:Key="ThemeColor">Orange</Color>
+        <AcrylicBrush x:Key="TitleBarBackground"
+                      BackgroundSource="HostBackdrop" 
+                      TintColor="{StaticResource ThemeColor}" 
+                      TintOpacity=".2" FallbackColor="{StaticResource ThemeColor}" />
+
+        <!-- These override existing resources and color the NavigationView -->
+        <AcrylicBrush x:Key="NavigationViewDefaultPaneBackground"
+                      BackgroundSource="Backdrop" TintColor="{StaticResource ThemeColor}" TintOpacity=".6" FallbackColor="{StaticResource ThemeColor}" />
+        <AcrylicBrush x:Key="NavigationViewExpandedPaneBackground"
+                      BackgroundSource="HostBackdrop" TintColor="{StaticResource ThemeColor}" TintOpacity=".8" FallbackColor="{StaticResource ThemeColor}" />
+
+    </Page.Resources>
+
+    <Grid Background="{ThemeResource SystemControlAcrylicWindowBrush}">
+        <!-- Custom style that allows the NavigationView header to collapse if the HeaderTemplate is empty -->
+        <controls:NavViewEx x:Name="NavView"
+                            Background="{ThemeResource SystemControlAcrylicWindowBrush}"
+                            SettingsPageType="views:SettingsPage">
+
+            <!-- Empty Header Template so I can display content to the top, otherwise 48px gap -->
+            <NavigationView.HeaderTemplate>
+                <DataTemplate >
+                    <controls:TitleBarEx ExtendIntoTitleBar="True"
+                                         Background="{StaticResource TitleBarBackground}"
+                                         TitleBarButtonBackgroundColor="Transparent"
+                                         TitleBarButtonForegroundColor="White" 
+                                         HeaderText="{Binding}"/>
+                </DataTemplate>
+            </NavigationView.HeaderTemplate>
+
+            <NavigationView.MenuItems>
+                <NavigationViewItem controls:NavProperties.PageType="views:Page1"
+                                    controls:NavProperties.IsStartPage="True"
+                                    Content="Page1" Icon="Home" />
+                <NavigationViewItem controls:NavProperties.PageType="views:Page2"
+                                    Content="Page2" Icon="XboxOneConsole" />
+            </NavigationView.MenuItems>
+
+            <Grid>
+                <Frame x:Name="RootFrame" />
+
+            </Grid>
+        </controls:NavViewEx>
+    </Grid>
+</Page>
